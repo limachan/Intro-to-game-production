@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cbld361aa21wv"]
+
+[ext_resource type="Texture2D" uid="uid://dwxq76qfsmmxc" path="res://death 00.png" id="1_31l71"]
+[ext_resource type="Texture2D" uid="uid://13mk2i7hxuiw" path="res://death 10.png" id="2_rix8u"]
+[ext_resource type="Texture2D" uid="uid://cyusjnmdf0l14" path="res://death 20.png" id="3_fxjgt"]
+[ext_resource type="Texture2D" uid="uid://dhio6xlw4sp15" path="res://Run 00.png" id="4_75bc2"]
+[ext_resource type="Texture2D" uid="uid://8yj7dcfga5hv" path="res://Run 10.png" id="5_37ke7"]
+[ext_resource type="Texture2D" uid="uid://dbqbotf400p3e" path="res://Run 20.png" id="6_fuvd6"]
+[ext_resource type="Texture2D" uid="uid://bj0v20otkjhd4" path="res://Run 30.png" id="7_fr74q"]
+[ext_resource type="Texture2D" uid="uid://ci1gcwcg5gclx" path="res://Run 40.png" id="8_grdjy"]
+[ext_resource type="Texture2D" uid="uid://dr4tgp2xy8u8r" path="res://Run 50.png" id="9_e384h"]
+[ext_resource type="Texture2D" uid="uid://dcbhgq04lupxf" path="res://Run 60.png" id="10_xykik"]
+[ext_resource type="Texture2D" uid="uid://cks5ttqu2206m" path="res://Run 70.png" id="11_15qnb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eg6hc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_31l71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rix8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fxjgt")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_75bc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_37ke7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fuvd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fr74q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_grdjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e384h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xykik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_15qnb")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 8.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=93963549]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=52618412]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1131272535]
+sprite_frames = SubResource("SpriteFrames_eg6hc")
+animation = &"Death"
+frame_progress = 0.08218171
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=791781370]
