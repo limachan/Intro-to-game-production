@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dfh2q8akh5mpo"]
+
+[ext_resource type="Texture2D" uid="uid://b256pv8v5e0ut" path="res://icons/Unfavorite.svg" id="1_5fa8c"]
+[ext_resource type="Script" uid="uid://c6acckkwqb58u" path="res://ui/favorite_button.gd" id="2_umsiu"]
+[ext_resource type="Texture2D" uid="uid://b5d4wicyba8uk" path="res://icons/Favorite.svg" id="3_gs4op"]
+
+[node name="FavoriteButton" type="Button" unique_id=1383764320]
+offset_right = 24.0
+offset_bottom = 24.0
+scale = Vector2(1.2, 1.2)
+tooltip_text = "Toggle favorite"
+icon = ExtResource("1_5fa8c")
+icon_alignment = 1
+script = ExtResource("2_umsiu")
+favorite_icon = ExtResource("3_gs4op")
+unfavorite_icon = ExtResource("1_5fa8c")

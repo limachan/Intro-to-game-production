@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://d0vhu22t6s6g0"]
+
+[ext_resource type="Script" uid="uid://qs6jwud16xtt" path="res://ui/search/search_box.gd" id="1_8kt2d"]
+[ext_resource type="Texture2D" uid="uid://bfhjlcouspqdp" path="res://icons/Search.svg" id="1_b782v"]
+[ext_resource type="Texture2D" uid="uid://b256pv8v5e0ut" path="res://icons/Unfavorite.svg" id="1_nd4xd"]
+[ext_resource type="Texture2D" uid="uid://b5d4wicyba8uk" path="res://icons/Favorite.svg" id="2_rxrip"]
+[ext_resource type="Texture2D" uid="uid://b4hybvgk4tirw" path="res://icons/FolderRemove.svg" id="4_rxrip"]
+[ext_resource type="Texture2D" uid="uid://6r807qjgbpf6" path="res://icons/Label.svg" id="4_ukx38"]
+[ext_resource type="Script" uid="uid://c1u3gurss2h3k" path="res://ui/search/tags_button.gd" id="5_nixc2"]
+[ext_resource type="PackedScene" uid="uid://oa1bfkcw6phh" path="res://ui/tags/tag_search_popup_menu.tscn" id="6_yttnk"]
+[ext_resource type="PackedScene" uid="uid://dsrohm52ltry5" path="res://ui/tags/tag.tscn" id="8_yttnk"]
+
+[node name="SearchBox" type="MarginContainer" unique_id=824444392]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 71.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_8kt2d")
+favorite_icon = ExtResource("2_rxrip")
+unfavorite_icon = ExtResource("1_nd4xd")
+tag_scene = ExtResource("8_yttnk")
+
+[node name="SearchBoxContainer" type="HBoxContainer" parent="." unique_id=602480419]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FolderClearButton" type="Button" parent="SearchBoxContainer" unique_id=1154915198]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+tooltip_text = "Clear selected folder"
+icon = ExtResource("4_rxrip")
+icon_alignment = 1
+
+[node name="FavoriteButton" type="Button" parent="SearchBoxContainer" unique_id=106059245]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+tooltip_text = "Toggle only showing favorited files"
+icon = ExtResource("1_nd4xd")
+icon_alignment = 1
+
+[node name="TagsButton" type="Button" parent="SearchBoxContainer" unique_id=1512955095]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+tooltip_text = "Select tags to filter"
+icon = ExtResource("4_ukx38")
+icon_alignment = 1
+script = ExtResource("5_nixc2")
+
+[node name="TagSearchPopupMenu" parent="SearchBoxContainer/TagsButton" unique_id=901692568 instance=ExtResource("6_yttnk")]
+unique_name_in_owner = true
+position = Vector2i(55, 65)
+visible = false
+
+[node name="TagScrollContainer" type="ScrollContainer" parent="SearchBoxContainer" unique_id=1731348057]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="TagScrollHBoxContainer" type="HBoxContainer" parent="SearchBoxContainer/TagScrollContainer" unique_id=164962753]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SearchLineEdit" type="LineEdit" parent="SearchBoxContainer" unique_id=939614903]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search for files"
+clear_button_enabled = true
+right_icon = ExtResource("1_b782v")
+
+[node name="DebounceTimer" type="Timer" parent="." unique_id=1237486180]
+unique_name_in_owner = true
+wait_time = 0.15
+one_shot = true

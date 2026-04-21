@@ -1,0 +1,14 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.4
+reloadable = true
+
+[libraries]
+linux.debug.x86_64 =     "res://addons/audiot/bin/x86_64-unknown-linux-gnu/debug/libaudiot.so"
+linux.release.x86_64 =   "res://addons/audiot/bin/x86_64-unknown-linux-gnu/release/libaudiot.so"
+windows.debug.x86_64 =   "res://addons/audiot/bin/x86_64-pc-windows-msvc/debug/audiot.dll"
+windows.release.x86_64 = "res://addons/audiot/bin/x86_64-pc-windows-msvc/release/audiot.dll"
+windows.debug.arm64 =    "res://addons/audiot/bin/aarch64-pc-windows-msvc/debug/audiot.dll"
+windows.release.arm64 =  "res://addons/audiot/bin/aarch64-pc-windows-msvc/release/audiot.dll"
+macos.debug =   "res://addons/audiot/bin/libaudiot.macos.framework"
+macos.release = "res://addons/audiot/bin/libaudiot.macos.framework"

@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://sfmnalmsuguy"]
+
+[ext_resource type="Script" uid="uid://bjt1e233ja4io" path="res://addons/audiot/ui/add_library_button.gd" id="1_dxbw4"]
+[ext_resource type="PackedScene" uid="uid://d0vhu22t6s6g0" path="res://addons/audiot/ui/search/search_box.tscn" id="1_n2egu"]
+[ext_resource type="Script" uid="uid://dq7d417nx0nex" path="res://addons/audiot/ui/main_panel.gd" id="1_qsjj8"]
+[ext_resource type="Texture2D" uid="uid://drxq2txl8ixxo" path="res://addons/audiot/icons/Add.svg" id="2_n2egu"]
+[ext_resource type="Script" uid="uid://cr4ofqexsamro" path="res://addons/audiot/ui/library_tree.gd" id="2_nm2ht"]
+[ext_resource type="Texture2D" uid="uid://dtgrj2i4oovhj" path="res://addons/audiot/Audiot.svg" id="2_v73ij"]
+[ext_resource type="Texture2D" uid="uid://bq6eup5jrskhp" path="res://addons/audiot/icons/Reload.svg" id="3_1ni3q"]
+[ext_resource type="Script" uid="uid://c2se6v82rlxax" path="res://addons/audiot/ui/main_menu_button.gd" id="3_w6ik8"]
+[ext_resource type="PackedScene" uid="uid://djxbes3612cak" path="res://addons/audiot/ui/settings/settings_window.tscn" id="4_2ldtk"]
+[ext_resource type="Texture2D" uid="uid://jgqy8seccg8b" path="res://addons/audiot/icons/AutoPlay.svg" id="4_5ylvs"]
+[ext_resource type="PackedScene" uid="uid://c1u0fyuiurx0m" path="res://addons/audiot/ui/virutal_scroll_list.tscn" id="4_l03v5"]
+[ext_resource type="PackedScene" uid="uid://gmf0g0e0tmlv" path="res://addons/audiot/ui/file_view/file_view.tscn" id="4_m2j12"]
+[ext_resource type="Texture2D" uid="uid://tr2cj8p5w0j7" path="res://addons/audiot/icons/Modifiers.svg" id="5_2jm54"]
+[ext_resource type="Texture2D" uid="uid://ra3u24b1pdhb" path="res://addons/audiot/icons/Remove.svg" id="5_bdx1y"]
+[ext_resource type="Texture2D" uid="uid://bji2knf7tfyqm" path="res://addons/audiot/icons/Edit.svg" id="5_jm84u"]
+[ext_resource type="Texture2D" uid="uid://bau37rsmjkywn" path="res://addons/audiot/icons/Help.svg" id="6_2jm54"]
+[ext_resource type="Texture2D" uid="uid://b0770v7o5svc1" path="res://addons/audiot/icons/Close.svg" id="6_odcx1"]
+[ext_resource type="Script" uid="uid://cjl2rcgolcydv" path="res://addons/audiot/ui/library_popup_menu.gd" id="6_vvs2p"]
+[ext_resource type="Texture2D" uid="uid://d4nso07w52se4" path="res://addons/audiot/icons/Callable.svg" id="7_fnwor"]
+
+[node name="Audiot" type="Audiot" unique_id=1861343110]
+editor_description = "NOTE: This is actually set  to the `Audiot` node that is defined in Rust"
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainPanel" type="Panel" parent="." unique_id=654051834]
+editor_description = "This node gets added as the main screen for the plugin.
+
+https://docs.godotengine.org/en/stable/classes/class_editorinterface.html#class-editorinterface-method-get-editor-main-screen
+
+> Note: This node is a VBoxContainer, which means that if you add a Control child to it, you need to set the child's Control.size_flags_vertical to Control.SIZE_EXPAND_FILL to make it use the full available space."
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_qsjj8")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel" unique_id=514253539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MainContainer" type="VBoxContainer" parent="MainPanel/MarginContainer" unique_id=421270926]
+layout_mode = 2
+
+[node name="TopContainer" type="HBoxContainer" parent="MainPanel/MarginContainer/MainContainer" unique_id=1243221766]
+layout_mode = 2
+
+[node name="SearchBox" parent="MainPanel/MarginContainer/MainContainer/TopContainer" unique_id=939614903 node_paths=PackedStringArray("library_tree") instance=ExtResource("1_n2egu")]
+unique_name_in_owner = true
+layout_mode = 2
+library_tree = NodePath("../../SplitContainer/LeftNavContainer/LibraryTree")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/MarginContainer/MainContainer/TopContainer" unique_id=1075091981]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="MainMenuButton" type="MenuButton" parent="MainPanel/MarginContainer/MainContainer/TopContainer/MarginContainer" unique_id=503292167]
+layout_mode = 2
+text = "Audiot"
+icon = ExtResource("2_v73ij")
+item_count = 6
+popup/item_0/text = "Auto-play"
+popup/item_0/icon = ExtResource("4_5ylvs")
+popup/item_0/checkable = 1
+popup/item_0/id = 3
+popup/item_1/text = "Settings"
+popup/item_1/icon = ExtResource("5_2jm54")
+popup/item_1/id = 0
+popup/item_2/text = "Help"
+popup/item_2/icon = ExtResource("6_2jm54")
+popup/item_2/id = 4
+popup/item_3/text = "Report an issue"
+popup/item_3/icon = ExtResource("7_fnwor")
+popup/item_3/id = 5
+popup/item_4/id = 2
+popup/item_4/separator = true
+popup/item_5/text = "Quit"
+popup/item_5/icon = ExtResource("6_odcx1")
+popup/item_5/id = 1
+script = ExtResource("3_w6ik8")
+
+[node name="SettingsPopup" parent="MainPanel/MarginContainer/MainContainer/TopContainer/MarginContainer/MainMenuButton" unique_id=1084154533 instance=ExtResource("4_2ldtk")]
+unique_name_in_owner = true
+visible = false
+
+[node name="SplitContainer" type="HSplitContainer" parent="MainPanel/MarginContainer/MainContainer" unique_id=50922551]
+layout_mode = 2
+size_flags_vertical = 3
+split_offsets = PackedInt32Array(400)
+split_offset = 400
+
+[node name="LeftNavContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/MainContainer/SplitContainer" unique_id=1882930111]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer" unique_id=1647010097]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer/HBoxContainer" unique_id=1482512007]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="AddLibraryButton" type="Button" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer/HBoxContainer" unique_id=225463809]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add library"
+icon = ExtResource("2_n2egu")
+script = ExtResource("1_dxbw4")
+
+[node name="FileDialog" type="FileDialog" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer/HBoxContainer/AddLibraryButton" unique_id=313279971]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Add a Library"
+initial_position = 4
+size = Vector2i(870, 550)
+mode_overrides_title = false
+file_mode = 2
+display_mode = 1
+access = 2
+
+[node name="RefreshLibrariesButton" type="Button" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer/HBoxContainer" unique_id=1794487446]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Look at all of the added libraries and add any new files / delete any removed files."
+text = " Refresh libraries "
+icon = ExtResource("3_1ni3q")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer/HBoxContainer" unique_id=735133569]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="DebugLoadButton" type="Button" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer" unique_id=1998203181]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DEBUG load libraries"
+
+[node name="LibraryTree" type="Tree" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer" unique_id=984630884]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+script = ExtResource("2_nm2ht")
+
+[node name="LibraryPopupMenu" type="PopupMenu" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer/LibraryTree" unique_id=1137545710]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Do something!"
+position = Vector2i(910, 490)
+size = Vector2i(157, 35)
+item_count = 2
+item_0/text = "Rename libary"
+item_0/icon = ExtResource("5_jm84u")
+item_0/id = 1
+item_1/text = "Remove library"
+item_1/icon = ExtResource("5_bdx1y")
+item_1/id = 0
+script = ExtResource("6_vvs2p")
+
+[node name="DeleteLibraryConfirmationDialog" type="ConfirmationDialog" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer/LibraryTree" unique_id=899795087]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Remove library?"
+initial_position = 4
+size = Vector2i(430, 220)
+ok_button_text = "Delete"
+dialog_text = "Are you sure you want to remove this library?
+
+This will not delete any files,  but you will lose any metadata such as tags that you have applied inside of Audiot."
+dialog_autowrap = true
+
+[node name="AddLibraryLabel" type="Label" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/LeftNavContainer" unique_id=1651184868]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "Add a library to get started"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FileListContainer" type="VSplitContainer" parent="MainPanel/MarginContainer/MainContainer/SplitContainer" unique_id=1382353368]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FileVirutalScrollList" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/FileListContainer" unique_id=854614005 instance=ExtResource("4_l03v5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FileView" parent="MainPanel/MarginContainer/MainContainer/SplitContainer/FileListContainer" unique_id=745299834 instance=ExtResource("4_m2j12")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 1

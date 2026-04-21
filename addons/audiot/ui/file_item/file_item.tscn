@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://7kqrkama7jqm"]
+
+[ext_resource type="Script" uid="uid://dp4w6wip47dq3" path="res://ui/file_item/file_item.gd" id="1_7brv3"]
+[ext_resource type="PackedScene" uid="uid://dfh2q8akh5mpo" path="res://ui/favorite_button.tscn" id="2_7brv3"]
+[ext_resource type="PackedScene" uid="uid://d4qd77v3vxx7" path="res://ui/file_item/file_item_tag.tscn" id="2_u55kl"]
+[ext_resource type="Script" uid="uid://bwh8ckaeuu50e" path="res://ui/file_item/file_button.gd" id="4_hwncj"]
+[ext_resource type="Texture2D" uid="uid://kitr8ajr4148" path="res://icons/TileUnchecked.svg" id="4_w3rh8"]
+[ext_resource type="Texture2D" uid="uid://b256pv8v5e0ut" path="res://icons/Unfavorite.svg" id="5_h8t2b"]
+[ext_resource type="Script" uid="uid://r542o5a7k7ou" path="res://ui/file_item/selected_button.gd" id="5_lpfj6"]
+[ext_resource type="Texture2D" uid="uid://6vuhmnog14b8" path="res://icons/TileChecked.svg" id="6_5q3xb"]
+[ext_resource type="Texture2D" uid="uid://bhwb4atwqyahv" path="res://icons/Filesystem.svg" id="6_hwncj"]
+[ext_resource type="Script" uid="uid://crdl4n2byffbm" path="res://ui/file_item/file_item_popup_menu.gd" id="7_gjpsm"]
+[ext_resource type="Texture2D" uid="uid://cb1cko2pf05s8" path="res://icons/ExternalLink.svg" id="7_hwncj"]
+[ext_resource type="Texture2D" uid="uid://b5d4wicyba8uk" path="res://icons/Favorite.svg" id="8_hmn7r"]
+
+[node name="FileItem" type="MarginContainer" unique_id=1677649362]
+offset_right = 200.0
+offset_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 1
+script = ExtResource("1_7brv3")
+file_item_tag_scene = ExtResource("2_u55kl")
+
+[node name="FileItem" type="HBoxContainer" parent="." unique_id=1423236024]
+layout_mode = 2
+
+[node name="SelectedButton" parent="FileItem" unique_id=1383764320 instance=ExtResource("2_7brv3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+icon = ExtResource("4_w3rh8")
+script = ExtResource("5_lpfj6")
+selected_icon = ExtResource("6_5q3xb")
+unselected_icon = ExtResource("4_w3rh8")
+
+[node name="FavoriteButton" parent="FileItem" unique_id=234298146 instance=ExtResource("2_7brv3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="FileButton" type="Button" parent="FileItem" unique_id=1371211130]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 3
+toggle_mode = true
+text = "MyCoolFile.wav"
+alignment = 0
+text_overrun_behavior = 3
+clip_text = true
+script = ExtResource("4_hwncj")
+
+[node name="FileItemPopupMenu" type="PopupMenu" parent="FileItem/FileButton" unique_id=1137609087]
+unique_name_in_owner = true
+oversampling_override = 1.0
+size = Vector2i(253, 58)
+item_count = 3
+item_0/text = "Favorite"
+item_0/icon = ExtResource("5_h8t2b")
+item_0/id = 0
+item_1/text = "Select containing folder"
+item_1/icon = ExtResource("6_hwncj")
+item_1/id = 2
+item_2/text = "Show in file manager"
+item_2/icon = ExtResource("7_hwncj")
+item_2/id = 1
+script = ExtResource("7_gjpsm")
+favorite_icon = ExtResource("8_hmn7r")
+unfavorite_icon = ExtResource("5_h8t2b")
+
+[node name="TagScrollContainer" type="ScrollContainer" parent="FileItem" unique_id=1208060190]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+vertical_scroll_mode = 0
+
+[node name="TagContainer" type="HBoxContainer" parent="FileItem/TagScrollContainer" unique_id=177583283]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bdp18wghafsy5"]
+
+[ext_resource type="Texture2D" uid="uid://bhwb4atwqyahv" path="res://icons/Filesystem.svg" id="1_xme06"]
+[ext_resource type="Script" uid="uid://du7i8pvjg417o" path="res://ui/open_directory_button.gd" id="2_xme06"]
+
+[node name="OpenDirectoryButton" type="Button" unique_id=747552029]
+tooltip_text = "Show in file manager"
+icon = ExtResource("1_xme06")
+script = ExtResource("2_xme06")

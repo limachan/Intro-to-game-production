@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c1u0fyuiurx0m"]
+
+[ext_resource type="Script" uid="uid://bilvurqcu58na" path="res://ui/virutal_scroll_list.gd" id="1_icr1t"]
+[ext_resource type="PackedScene" uid="uid://7kqrkama7jqm" path="res://ui/file_item/file_item.tscn" id="2_0dyk8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dyk8"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.4509804, 0.4745098, 0.5803922, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijjn5"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.5137255, 0.54509807, 0.654902, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sd7jh"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.5803922, 0.6117647, 0.73333335, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="VirutalScrollList" type="Control" unique_id=854614005]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_icr1t")
+item_scene = ExtResource("2_0dyk8")
+
+[node name="Content" type="Control" parent="." unique_id=1129292532]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 1912.0
+offset_bottom = 1080.0
+
+[node name="VScrollBar" type="VScrollBar" parent="." unique_id=395344859]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1912.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/grabber = SubResource("StyleBoxFlat_0dyk8")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxFlat_ijjn5")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxFlat_sd7jh")

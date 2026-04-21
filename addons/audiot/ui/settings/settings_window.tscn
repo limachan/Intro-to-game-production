@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://djxbes3612cak"]
+
+[ext_resource type="Script" uid="uid://blsgcpdjw5cpn" path="res://addons/audiot/ui/settings/settings_window.gd" id="1_0fx8a"]
+[ext_resource type="Texture2D" uid="uid://bhwb4atwqyahv" path="res://addons/audiot/icons/Filesystem.svg" id="1_vgtng"]
+[ext_resource type="Texture2D" uid="uid://coya38da0plh8" path="res://addons/audiot/icons/Debug.svg" id="2_18dtb"]
+[ext_resource type="Texture2D" uid="uid://bq6eup5jrskhp" path="res://addons/audiot/icons/Reload.svg" id="2_nstiq"]
+[ext_resource type="Theme" uid="uid://qnnco5frx37r" path="res://addons/audiot/themes/catpuccin_frappe.tres" id="2_yqjwi"]
+[ext_resource type="Theme" uid="uid://cewgsgtc61mpp" path="res://addons/audiot/themes/godot_default.tres" id="3_3wl25"]
+
+[node name="SettingsPopup" type="Popup" unique_id=1084154533]
+oversampling_override = 1.0
+title = "Audiot Settings"
+initial_position = 4
+size = Vector2i(750, 600)
+visible = true
+unresizable = false
+borderless = false
+popup_wm_hint = false
+script = ExtResource("1_0fx8a")
+themes = Dictionary[int, Theme]({
+0: ExtResource("2_yqjwi"),
+1: ExtResource("3_3wl25")
+})
+
+[node name="Panel" type="Panel" parent="." unique_id=1159014556]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=450261671]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer" unique_id=1773557152]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="MainContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer" unique_id=1170998836]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="AudioOutputContainer" type="HBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=1012600523]
+layout_mode = 2
+
+[node name="AudioOutputLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/MainContainer/AudioOutputContainer" unique_id=33370973]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Audio output device"
+
+[node name="AudioOutputOptionButton" type="OptionButton" parent="Panel/MarginContainer/ScrollContainer/MainContainer/AudioOutputContainer" unique_id=1521154267]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "Default"
+popup/item_0/id = 0
+popup/item_1/text = "MacBook Pro Speakers (77)"
+popup/item_1/id = 1
+popup/item_2/text = "VB-Cable (73)"
+popup/item_2/id = 2
+
+[node name="UIScaleContainer" type="HBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=2103508492]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="UIScaleLabelContainer" type="HBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer/UIScaleContainer" unique_id=1722352724]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UIScaleLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/MainContainer/UIScaleContainer/UIScaleLabelContainer" unique_id=1554060832]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "UI Scale"
+
+[node name="UIScaleResetButton" type="Button" parent="Panel/MarginContainer/ScrollContainer/MainContainer/UIScaleContainer/UIScaleLabelContainer" unique_id=129297890]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Reset UI Scale"
+icon = ExtResource("2_nstiq")
+flat = true
+
+[node name="UIScaleSliderContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer/UIScaleContainer" unique_id=481871056]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UIScaleSliderLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/MainContainer/UIScaleContainer/UIScaleSliderContainer" unique_id=719513093]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1.0"
+
+[node name="UIScaleSlider" type="HSlider" parent="Panel/MarginContainer/ScrollContainer/MainContainer/UIScaleContainer/UIScaleSliderContainer" unique_id=1545445175]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 3.0
+step = 0.25
+value = 1.0
+tick_count = 8
+ticks_position = 3
+
+[node name="ThemeContainer" type="HBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=764568551]
+layout_mode = 2
+
+[node name="ThemeLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/MainContainer/ThemeContainer" unique_id=2028380580]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Theme"
+
+[node name="ThemeOptionButton" type="OptionButton" parent="Panel/MarginContainer/ScrollContainer/MainContainer/ThemeContainer" unique_id=1633468519]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Catpuccin Frappé"
+popup/item_0/id = 0
+popup/item_1/text = "Godot"
+popup/item_1/id = 1
+
+[node name="ShowDatabaseContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=1350937661]
+layout_mode = 2
+
+[node name="ShowDatabaseButton" type="Button" parent="Panel/MarginContainer/ScrollContainer/MainContainer/ShowDatabaseContainer" unique_id=737539942]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Show database in file system"
+icon = ExtResource("1_vgtng")
+
+[node name="ShowDatabaseLabel" type="Label" parent="Panel/MarginContainer/ScrollContainer/MainContainer/ShowDatabaseContainer" unique_id=398417652]
+layout_mode = 2
+text = "Audiot uses a SQLite database to store file lists and metadata"
+horizontal_alignment = 2
+
+[node name="BugReportContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=1764071605]
+layout_mode = 2
+
+[node name="BugReportButton" type="Button" parent="Panel/MarginContainer/ScrollContainer/MainContainer/BugReportContainer" unique_id=1739777438]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Report a bug or request a feature"
+icon = ExtResource("2_18dtb")
+
+[node name="___" type="Control" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=980866328]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="---" type="HSeparator" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=26627871]
+layout_mode = 2
+
+[node name="CloseButtonContainer" type="CenterContainer" parent="Panel/MarginContainer/ScrollContainer/MainContainer" unique_id=1761344542]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Panel/MarginContainer/ScrollContainer/MainContainer/CloseButtonContainer" unique_id=856235821]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Close"

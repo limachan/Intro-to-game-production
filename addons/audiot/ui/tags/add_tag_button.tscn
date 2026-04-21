@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://br4fyogexx3we"]
+
+[ext_resource type="Texture2D" uid="uid://drxq2txl8ixxo" path="res://icons/Add.svg" id="1_4mw5t"]
+[ext_resource type="Script" uid="uid://cavr1yu45tkda" path="res://ui/tags/add_tag_button.gd" id="2_7msnm"]
+[ext_resource type="PackedScene" uid="uid://oa1bfkcw6phh" path="res://ui/tags/tag_search_popup_menu.tscn" id="3_otydo"]
+
+[node name="AddTagButton" type="Button" unique_id=325486491]
+custom_minimum_size = Vector2(110, 40)
+text = "Add tag"
+icon = ExtResource("1_4mw5t")
+icon_alignment = 2
+script = ExtResource("2_7msnm")
+
+[node name="TagPopupMenu" parent="." unique_id=901692568 instance=ExtResource("3_otydo")]
+unique_name_in_owner = true
+visible = false

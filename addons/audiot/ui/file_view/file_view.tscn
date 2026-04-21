@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://gmf0g0e0tmlv"]
+
+[ext_resource type="Script" uid="uid://dvfr6si36s0n0" path="res://addons/audiot/ui/file_view/file_view.gd" id="1_q2lo0"]
+[ext_resource type="Script" uid="uid://dm3mbjo54uife" path="res://addons/audiot/ui/file_view/audio_stream_visualizer.gd" id="2_kg2ce"]
+[ext_resource type="PackedScene" uid="uid://dsrohm52ltry5" path="res://addons/audiot/ui/tags/tag.tscn" id="2_nuraq"]
+[ext_resource type="PackedScene" uid="uid://dfh2q8akh5mpo" path="res://addons/audiot/ui/favorite_button.tscn" id="2_vnxjw"]
+[ext_resource type="Script" uid="uid://cs6milhve4y0h" path="res://addons/audiot/ui/file_view/playback_position.gd" id="3_cbyr6"]
+[ext_resource type="Texture2D" uid="uid://cuw4mfo3khhrv" path="res://addons/audiot/icons/DirAccess.svg" id="3_cy8b2"]
+[ext_resource type="PackedScene" uid="uid://bdp18wghafsy5" path="res://addons/audiot/ui/open_directory_button.tscn" id="3_rk0uf"]
+[ext_resource type="Script" uid="uid://ci57pir2r5gbg" path="res://addons/audiot/ui/file_view/copy_selected_files_button.gd" id="4_4if8h"]
+[ext_resource type="Texture2D" uid="uid://cy3up3ga2c48" path="res://addons/audiot/icons/Play.svg" id="4_lgixf"]
+[ext_resource type="Texture2D" uid="uid://d0vbxhvyege7e" path="res://addons/audiot/icons/Clear.svg" id="5_0sx1s"]
+[ext_resource type="Script" uid="uid://djg6upg6ng2p8" path="res://addons/audiot/ui/file_view/play_pause_button.gd" id="5_2rvk5"]
+[ext_resource type="PackedScene" uid="uid://br4fyogexx3we" path="res://addons/audiot/ui/tags/add_tag_button.tscn" id="5_nuraq"]
+[ext_resource type="Texture2D" uid="uid://cb1cko2pf05s8" path="res://addons/audiot/icons/ExternalLink.svg" id="5_sr4o3"]
+[ext_resource type="Texture2D" uid="uid://b0770v7o5svc1" path="res://addons/audiot/icons/Close.svg" id="6_310ik"]
+[ext_resource type="Texture2D" uid="uid://bxht83fleq1m3" path="res://addons/audiot/icons/Pause.svg" id="6_axv7b"]
+[ext_resource type="Script" uid="uid://c2j38ngyh3ef6" path="res://addons/audiot/ui/file_view/clear_selected_files_button.gd" id="6_kd5h6"]
+[ext_resource type="Texture2D" uid="uid://c5amnopxtu5uj" path="res://addons/audiot/icons/Loop.svg" id="6_tqekj"]
+[ext_resource type="Texture2D" uid="uid://bmbbsdfmj21ry" path="res://addons/audiot/icons/AudioStreamPlayer.svg" id="7_2rvk5"]
+[ext_resource type="Script" uid="uid://dle1e0nsxvem1" path="res://addons/audiot/ui/file_view/set_loop_check_button.gd" id="8_axv7b"]
+[ext_resource type="Texture2D" uid="uid://jgqy8seccg8b" path="res://addons/audiot/icons/AutoPlay.svg" id="9_6ofvh"]
+[ext_resource type="Script" uid="uid://bme1bppvccj46" path="res://addons/audiot/ui/file_view/volume_slider.gd" id="10_767kd"]
+[ext_resource type="Script" uid="uid://cjvo5vu67pna2" path="res://addons/audiot/ui/file_view/time_label.gd" id="14_lu3ix"]
+[ext_resource type="Script" uid="uid://05fwpdne0wx0" path="res://addons/audiot/ui/file_view/auto_play_check_button.gd" id="15_enjp8"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_fn8k0"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_khdu0"]
+events = [SubResource("InputEventKey_fn8k0")]
+
+[node name="FileView" type="MarginContainer" unique_id=566808042]
+offset_right = 308.0
+offset_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_q2lo0")
+tag_scene = ExtResource("2_nuraq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=70862978]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=935867250]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1518710065]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer" unique_id=752947500]
+layout_mode = 2
+
+[node name="CopySelectedFilesButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer" unique_id=2126686782]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Copy files from this library to somewhere else"
+text = "Copy file to project"
+icon = ExtResource("3_cy8b2")
+script = ExtResource("4_4if8h")
+
+[node name="CopySelectedFilesDialog" type="FileDialog" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer/CopySelectedFilesButton" unique_id=945680790]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Copy Files to Location"
+initial_position = 4
+size = Vector2i(870, 550)
+mode_overrides_title = false
+file_mode = 2
+display_mode = 1
+access = 2
+
+[node name="ClearSelectedFilesButton" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer/HBoxContainer" unique_id=1122275867]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Clear selected files"
+icon = ExtResource("5_0sx1s")
+script = ExtResource("6_kd5h6")
+
+[node name="---" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=183229790]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelectDirectoryButton" parent="VBoxContainer/HBoxContainer" unique_id=747552029 instance=ExtResource("3_rk0uf")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Select the folder that this file is in, only showing files in that folder"
+text = "Select containing folder"
+script = null
+
+[node name="OpenDirectoryButton" parent="VBoxContainer/HBoxContainer" unique_id=862998513 instance=ExtResource("3_rk0uf")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Show this file in your operating system's file manager"
+text = "Show in file manager"
+icon = ExtResource("5_sr4o3")
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1705711343]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "Close file view"
+icon = ExtResource("6_310ik")
+
+[node name="FileViewContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=745299834]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/FileViewContainer" unique_id=1741042671]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+
+[node name="HeaderContainer" type="HBoxContainer" parent="VBoxContainer/FileViewContainer/MarginContainer2" unique_id=1845408013]
+layout_mode = 2
+
+[node name="HeaderLeft" type="HBoxContainer" parent="VBoxContainer/FileViewContainer/MarginContainer2/HeaderContainer" unique_id=131246386]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="FavoriteButton" parent="VBoxContainer/FileViewContainer/MarginContainer2/HeaderContainer/HeaderLeft" unique_id=1280459870 instance=ExtResource("2_vnxjw")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="FileNameLabel" type="Label" parent="VBoxContainer/FileViewContainer/MarginContainer2/HeaderContainer/HeaderLeft" unique_id=1787794779]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+text = "SOME_COOL_SOUND.ogg"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="TagList" type="HFlowContainer" parent="VBoxContainer/FileViewContainer" unique_id=941180260]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="AddTagButton" parent="VBoxContainer/FileViewContainer/TagList" unique_id=325486491 instance=ExtResource("5_nuraq")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/FileViewContainer" unique_id=326663071]
+layout_mode = 2
+
+[node name="AudioStreamVisualizer" type="Control" parent="VBoxContainer/FileViewContainer/VBoxContainer" unique_id=1955682503 node_paths=PackedStringArray("play_pause_button")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_kg2ce")
+play_pause_button = NodePath("../../MarginContainer/AudioStreamControls/PlayPauseButton")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/FileViewContainer/VBoxContainer/AudioStreamVisualizer" unique_id=1371169999]
+unique_name_in_owner = true
+
+[node name="PlaybackPositionIndicator" type="Control" parent="VBoxContainer/FileViewContainer/VBoxContainer/AudioStreamVisualizer" unique_id=232124785 node_paths=PackedStringArray("file_view")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_cbyr6")
+file_view = NodePath("../../../../..")
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/FileViewContainer/VBoxContainer" unique_id=538690438]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "00:00 / 00:00s"
+horizontal_alignment = 2
+script = ExtResource("14_lu3ix")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/FileViewContainer" unique_id=750289109]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="AudioStreamControls" type="HBoxContainer" parent="VBoxContainer/FileViewContainer/MarginContainer" unique_id=1953602875]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="PlayPauseButton" type="Button" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls" unique_id=1236676829 node_paths=PackedStringArray("file_view", "audio_stream_player")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_mode = 3
+shortcut = SubResource("Shortcut_khdu0")
+text = "Play"
+icon = ExtResource("4_lgixf")
+script = ExtResource("5_2rvk5")
+file_view = NodePath("../../../../..")
+audio_stream_player = NodePath("../../../VBoxContainer/AudioStreamVisualizer/AudioStreamPlayer")
+pause_icon = ExtResource("6_axv7b")
+play_icon = ExtResource("4_lgixf")
+
+[node name="SetLoopCheckButton" type="CheckButton" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls" unique_id=1708943758 node_paths=PackedStringArray("audio_stream_player")]
+layout_mode = 2
+focus_mode = 3
+text = "Loop"
+icon = ExtResource("6_tqekj")
+script = ExtResource("8_axv7b")
+audio_stream_player = NodePath("../../../VBoxContainer/AudioStreamVisualizer/AudioStreamPlayer")
+
+[node name="AutoPlayCheckButton" type="CheckButton" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls" unique_id=339882895]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Automatically play files when they are selected in the file list"
+focus_mode = 3
+button_pressed = true
+text = "Auto-play"
+icon = ExtResource("9_6ofvh")
+script = ExtResource("15_enjp8")
+
+[node name="___" type="Control" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls" unique_id=1625882704]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VolumeContainer" type="VBoxContainer" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls" unique_id=1476743473]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+
+[node name="VolumeLabelContainer" type="HBoxContainer" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls/VolumeContainer" unique_id=389122858]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls/VolumeContainer/VolumeLabelContainer" unique_id=921686331]
+layout_mode = 2
+texture = ExtResource("7_2rvk5")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls/VolumeContainer/VolumeLabelContainer" unique_id=1448949007]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSliderContainer" type="VBoxContainer" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls/VolumeContainer" unique_id=1156503033]
+layout_mode = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls/VolumeContainer/VolumeSliderContainer" unique_id=850206930 node_paths=PackedStringArray("audio_stream_player", "label")]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 3
+min_value = -80.0
+max_value = 24.0
+script = ExtResource("10_767kd")
+audio_stream_player = NodePath("../../../../../VBoxContainer/AudioStreamVisualizer/AudioStreamPlayer")
+label = NodePath("../Label2")
+
+[node name="Label2" type="Label" parent="VBoxContainer/FileViewContainer/MarginContainer/AudioStreamControls/VolumeContainer/VolumeSliderContainer" unique_id=1655543946]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "(0.0 dB)"
+horizontal_alignment = 2

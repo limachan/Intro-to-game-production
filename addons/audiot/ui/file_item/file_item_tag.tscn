@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d4qd77v3vxx7"]
+
+[ext_resource type="Script" uid="uid://bgjyakvccp6k3" path="res://ui/file_item/file_item_tag.gd" id="1_7tnh2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tnh2"]
+resource_local_to_scene = true
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="FileItemTag" type="Button" unique_id=1694703551]
+custom_minimum_size = Vector2(65, 0)
+offset_right = 65.0
+offset_bottom = 29.0
+text = "Music"
+script = ExtResource("1_7tnh2")
+base_style = SubResource("StyleBoxFlat_7tnh2")

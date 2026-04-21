@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dsrohm52ltry5"]
+
+[ext_resource type="Script" uid="uid://b1642p6divbw4" path="res://ui/tags/tag.gd" id="1_15btq"]
+[ext_resource type="Texture2D" uid="uid://b0770v7o5svc1" path="res://icons/Close.svg" id="2_g4meg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4meg"]
+resource_local_to_scene = true
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.099985994, 0.099985994, 0.099985994, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 0.6666667)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g4meg"]
+resource_local_to_scene = true
+color = Color(0.3987929, 0.39879292, 0.3987929, 1)
+thickness = 3
+vertical = true
+
+[node name="Tag" type="PanelContainer" unique_id=406069143]
+custom_minimum_size = Vector2(65, 0)
+offset_right = 104.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4meg")
+script = ExtResource("1_15btq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2082149464]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1915780062]
+layout_mode = 2
+
+[node name="TagLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1226280720]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer" unique_id=1147346412]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 6
+theme_override_styles/separator = SubResource("StyleBoxLine_g4meg")
+
+[node name="RemoveTagButton" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1132484371]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Remove tag"
+icon = ExtResource("2_g4meg")
+flat = true
+icon_alignment = 1
+
+[node name="ColorPickerPopup" type="Popup" parent="." unique_id=1714933374]
+unique_name_in_owner = true
+oversampling_override = 1.0
+size = Vector2i(367, 483)
+
+[node name="Panel" type="Panel" parent="ColorPickerPopup" unique_id=1960682694]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorPicker" type="ColorPicker" parent="ColorPickerPopup/Panel" unique_id=1035197276]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+edit_intensity = false
+deferred_mode = true
+can_add_swatches = false
+sampler_visible = false
+presets_visible = false
