@@ -1,0 +1,29 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://b8wr0hwoqop4v"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+
+[resource]
+bus/0/volume_db = 0.26724052
+bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_j3pel")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/0/effect/1/enabled = true
+bus/1/name = &"Master Copy"
+bus/1/solo = true
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -13.51011
+bus/1/send = &""
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_j3pel")
+bus/1/effect/0/enabled = false
+bus/1/effect/1/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/1/effect/1/enabled = false
+bus/1/effect/2/effect = SubResource("AudioEffectReverb_j3pel")
+bus/1/effect/2/enabled = true

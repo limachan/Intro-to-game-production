@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqb07dnppe2iu"
+path="res://.godot/imported/SWEET SPINE - Darkness (SPOTISAVER).mp3-811d8a7f1ea1f6179e4ad93a72192f14.mp3str"
+
+[deps]
+
+source_file="res://SWEET SPINE - Darkness (SPOTISAVER).mp3"
+dest_files=["res://.godot/imported/SWEET SPINE - Darkness (SPOTISAVER).mp3-811d8a7f1ea1f6179e4ad93a72192f14.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

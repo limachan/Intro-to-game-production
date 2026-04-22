@@ -1,0 +1,35 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://cduq40sk7ixw3"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_r3k7f"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_r3k7f"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_c3srw"]
+resource_name = "Distortion"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_c3srw"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_r3k7f"]
+resource_name = "Distortion"
+
+[resource]
+bus/0/volume_db = -14.622803
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_r3k7f")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectPitchShift_r3k7f")
+bus/0/effect/1/enabled = true
+bus/0/effect/2/effect = SubResource("AudioEffectDistortion_c3srw")
+bus/0/effect/2/enabled = true
+bus/0/effect/3/effect = SubResource("AudioEffectReverb_c3srw")
+bus/0/effect/3/enabled = true
+bus/1/name = &"New Bus"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 3.440256
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectDistortion_r3k7f")
+bus/1/effect/0/enabled = true
