@@ -65,6 +65,6 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1131272535]
 sprite_frames = SubResource("SpriteFrames_eg6hc")
 animation = &"Death"
-frame_progress = 0.9024365
+frame_progress = 0.23408596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=791781370]
