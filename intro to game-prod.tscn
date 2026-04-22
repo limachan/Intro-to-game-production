@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dr4tgp2xy8u8r" path="res://Run 50.png" id="9_e384h"]
 [ext_resource type="Texture2D" uid="uid://dcbhgq04lupxf" path="res://Run 60.png" id="10_xykik"]
 [ext_resource type="Texture2D" uid="uid://cks5ttqu2206m" path="res://Run 70.png" id="11_15qnb"]
+[ext_resource type="PackedScene" uid="uid://ymx7mhwdylrf" path="res://rp_manuel_animated_001_dancing.fbx" id="12_rix8u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eg6hc"]
 animations = [{
@@ -68,3 +69,6 @@ animation = &"Death"
 frame_progress = 0.23408596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=791781370]
+
+[node name="rp_manuel_animated_001_dancing" parent="." unique_id=23060652 instance=ExtResource("12_rix8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20621169, 0, 0.7052865)
